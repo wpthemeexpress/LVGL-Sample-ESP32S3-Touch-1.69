@@ -10,13 +10,56 @@ void ui_Screen1_screen_init(void)
 ui_Screen1 = lv_obj_create(NULL);
 lv_obj_clear_flag( ui_Screen1, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_Calendar1 = lv_calendar_create(ui_Screen1);
-lv_obj_t *ui_Calendar1_header = lv_calendar_header_arrow_create(ui_Calendar1);
-lv_obj_set_width( ui_Calendar1, 230);
-lv_obj_set_height( ui_Calendar1, 240);
-lv_obj_set_x( ui_Calendar1, 1 );
-lv_obj_set_y( ui_Calendar1, 4 );
-lv_obj_set_align( ui_Calendar1, LV_ALIGN_CENTER );
+ui_Image3 = lv_img_create(ui_Screen1);
+lv_img_set_src(ui_Image3, &ui_img_logo_png);
+lv_obj_set_width( ui_Image3, LV_SIZE_CONTENT);  /// 200
+lv_obj_set_height( ui_Image3, LV_SIZE_CONTENT);   /// 36
+lv_obj_set_x( ui_Image3, 0 );
+lv_obj_set_y( ui_Image3, -117 );
+lv_obj_set_align( ui_Image3, LV_ALIGN_CENTER );
+lv_obj_add_flag( ui_Image3, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
+lv_obj_clear_flag( ui_Image3, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_img_set_zoom(ui_Image3,100);
 
+ui_TextArea1 = lv_textarea_create(ui_Screen1);
+lv_obj_set_width( ui_TextArea1, lv_pct(90));
+lv_obj_set_height( ui_TextArea1, LV_SIZE_CONTENT);   /// 70
+lv_obj_set_x( ui_TextArea1, 0 );
+lv_obj_set_y( ui_TextArea1, -66 );
+lv_obj_set_align( ui_TextArea1, LV_ALIGN_CENTER );
+lv_textarea_set_placeholder_text(ui_TextArea1,"Write....");
+lv_textarea_set_one_line(ui_TextArea1,true);
+
+
+
+ui_Button3 = lv_btn_create(ui_Screen1);
+lv_obj_set_width( ui_Button3, 58);
+lv_obj_set_height( ui_Button3, 41);
+lv_obj_set_x( ui_Button3, 95 );
+lv_obj_set_y( ui_Button3, -131 );
+lv_obj_set_align( ui_Button3, LV_ALIGN_CENTER );
+lv_obj_add_flag( ui_Button3, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
+lv_obj_clear_flag( ui_Button3, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+
+ui_Label2 = lv_label_create(ui_Button3);
+lv_obj_set_width( ui_Label2, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_Label2, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_Label2, 0 );
+lv_obj_set_y( ui_Label2, 4 );
+lv_obj_set_align( ui_Label2, LV_ALIGN_CENTER );
+lv_label_set_text(ui_Label2,"Next");
+lv_obj_set_style_text_color(ui_Label2, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_text_opa(ui_Label2, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_Keyboard1 = lv_keyboard_create(ui_Screen1);
+lv_obj_set_height( ui_Keyboard1, 158);
+lv_obj_set_width( ui_Keyboard1, lv_pct(100));
+lv_obj_set_x( ui_Keyboard1, -1 );
+lv_obj_set_y( ui_Keyboard1, 61 );
+lv_obj_set_align( ui_Keyboard1, LV_ALIGN_CENTER );
+
+lv_obj_add_event_cb(ui_TextArea1, ui_event_TextArea1, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_Button3, ui_event_Button3, LV_EVENT_ALL, NULL);
+lv_keyboard_set_textarea(ui_Keyboard1,ui_TextArea1);
 
 }

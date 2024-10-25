@@ -23,14 +23,42 @@ extern "C" {
 #endif
 
 #include "ui_helpers.h"
+#include "ui_comp.h"
+#include "ui_comp_hook.h"
 #include "ui_events.h"
 
 // SCREEN: ui_Screen1
 void ui_Screen1_screen_init(void);
 extern lv_obj_t *ui_Screen1;
-extern lv_obj_t *ui_Calendar1;
+extern lv_obj_t *ui_Image3;
+void ui_event_TextArea1( lv_event_t * e);
+extern lv_obj_t *ui_TextArea1;
+void ui_event_Button3( lv_event_t * e);
+extern lv_obj_t *ui_Button3;
+extern lv_obj_t *ui_Label2;
+extern lv_obj_t *ui_Keyboard1;
+// SCREEN: ui_Screen2
+void ui_Screen2_screen_init(void);
+extern lv_obj_t *ui_Screen2;
+extern lv_obj_t *ui_Image1;
+void ui_event_Button( lv_event_t * e);
+extern lv_obj_t *ui_Button;
+extern lv_obj_t *ui_Label1;
+void ui_event_Button1( lv_event_t * e);
+extern lv_obj_t *ui_Button1;
+extern lv_obj_t *ui_Label3;
+extern lv_obj_t *ui_Image4;
+// SCREEN: ui_Screen4
+void ui_Screen4_screen_init(void);
+extern lv_obj_t *ui_Screen4;
+extern lv_obj_t *ui_Image5;
+void ui_event_Button2_Button1( lv_event_t * e);
+extern lv_obj_t *ui_Button2;
+extern lv_obj_t *ui_Label4;
 extern lv_obj_t *ui____initial_actions0;
 
+LV_IMG_DECLARE( ui_img_logo_png);   // assets/logo.png
+LV_IMG_DECLARE( ui_img_1888977373);   // assets/Screenshot at Oct 24 21-34-34.png
 
 
 
